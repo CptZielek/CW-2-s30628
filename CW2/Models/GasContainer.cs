@@ -6,13 +6,12 @@ public class GasContainer(
     double depth, 
     double capacity,
     double pressure)
-    : Kontener(mass, height, depth, capacity), IIsHazardNotifier
+    : Kontener(mass, height, depth, capacity, "G"), IIsHazardNotifier
 {
     public double Pressure { get; set; } = pressure;
     
     public override void Empty()
     {
-        
         Mean = 0.05 * Mean;
     }
 

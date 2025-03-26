@@ -10,13 +10,13 @@ public class Kontener
     public string SerialNumber { get; set; }
     public static int Number = 1;
     
-    public Kontener(double mass, double height, double depth, double capacity)
+    public Kontener(double mass, double height, double depth, double capacity, string type)
     {
         Height = height;
         Depth = depth;
         Mass = mass;
         Capacity = capacity;
-        Number++;
+        SerialNumber = "KON-"+type+"-"+Number++;
     }
 
     public virtual void Empty()
