@@ -6,14 +6,20 @@ public class LiquidContainer(
     double depth, 
     double capacity, 
     bool isHazardous)
-    : Kontener(mass, height, depth, capacity, "L"), IIsHazardNotifier
+    : Container(mass, height, depth, capacity, "L"), IIsHazardNotifier
 {
     private bool IsHazardous { get; set; } = isHazardous;
 
     public override void Load(double load)
     {
-        if (IsHazardous && load > Capacity * 0.5 || !IsHazardous && load > Capacity * 0.9) { Notify(); }
-        else { base.Load(load); }
+        if (IsHazardous && load > Capacity * 0.5 || !IsHazardous && load > Capacity * 0.9)
+        {
+            Notify();
+        }
+        else
+        {
+            base.Load(load);
+        }
     }
 
     public void Notify()

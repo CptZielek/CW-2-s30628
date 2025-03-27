@@ -5,9 +5,8 @@ public class CoolingContainer(
     double height,
     double depth,
     double capacity, 
-    string productType, 
     double temprature)
-    : Kontener(mass, height, depth, capacity, "C")
+    : Container(mass, height, depth, capacity, "C")
 {
     public Dictionary<string, double> CoolingDictionary { get; } = new Dictionary<string, double>()
     {
@@ -18,6 +17,19 @@ public class CoolingContainer(
         { "Ice cream", -18 },
         { "Frozen pizza", -30 },
     }; 
-    public string ProductType { get; set; } = productType;
+    public string? ProductType{ get; set; }
     public double Temprature { get; set; } = temprature;
+    
+    public void Load(double load, string productType)
+    {
+        if (CoolingDictionary[productType] != Temprature)
+        {
+            Console.WriteLine("Zła temperatura dla: "+productType);
+        }
+        else
+        {
+            ProductType = productType;
+            base.Load(load);
+        }
+    }
 }
